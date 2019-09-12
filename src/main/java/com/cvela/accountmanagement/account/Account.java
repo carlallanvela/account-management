@@ -31,8 +31,8 @@ public class Account {
 	private String name;
 	
 	@Past(message = "Date should be in the past.")
-	@ApiModelProperty(notes="Post date should be in the past. ")
-	private Date postDate;
+	@ApiModelProperty(notes="Transaction date should be in the past. ")
+	private Date transactionDate;
 	
 	@OneToMany(mappedBy="account")
 	private List<Transaction> transactions;
@@ -53,33 +53,33 @@ public class Account {
 		this.name = name;
 	}
 	
-	public Date getPostDate() {
-		return postDate;
+	public Date getTransactionDate() {
+		return transactionDate;
 	}
 	
-	public void setPostDate(Date postDate) {
-		this.postDate = postDate;
+	public void setTransactionDate(Date transactionDate) {
+		this.transactionDate = transactionDate;
 	}
 	
 	public List<Transaction> getTransactions() {
 		return transactions;
 	}
 
-	public void setPosts(List<Transaction> transactions) {
+	public void setTransactions(List<Transaction> transactions) {
 		this.transactions = transactions;
 	}
 	
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", name=" + name + ", postDate=" + postDate + "]";
+		return "Account [id=" + id + ", name=" + name + ", transactionDate=" + transactionDate + "]";
 	}
 	
 	protected Account() { }
 	
-	public Account(Integer id, String name, Date postDate) {
+	public Account(Integer id, String name, Date transactionDate) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.postDate = postDate;
+		this.transactionDate = transactionDate;
 	}
 }
