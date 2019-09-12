@@ -1,6 +1,7 @@
 # account-management
 
-This is a sample application requested from ANZ Wholesale Engineering. This project is created using Java 8 and SpringBoot. The APIs enables user to GET, POST and DELETE Accounts and GET, POST Transactions.
+This is a sample application requested from ANZ Wholesale Engineering. This project is created using Java 8 and SpringBoot. 
+The APIs enables user to GET, POST and DELETE Accounts and GET, POST Transactions.
 
 ## Development server
 
@@ -8,9 +9,22 @@ To run project, go to AccountManagementApplication.java and run as SpringBoot Ap
 
 APIs can be accessed via http://localhost:8080
 Example:
-GET localhost:8080/jpa/accounts/
-POST localhost:8080/jpa/accounts/
-GET localhost:8080/jpa/accounts/10001/transactions
+1) GET localhost:8080/jpa/accounts/
+2) POST localhost:8080/jpa/accounts/
+BODY:
+{
+    "name": "test",
+    "transactionDate": "2019-09-11T16:00:00.000+0000",
+    "transactions": []
+}
+3) GET localhost:8080/jpa/accounts/10001/transactions
+4) POST localhost:8080/jpa/accounts/10001/transactions
+BODY:
+{
+    "description": "Account 6",
+    "postDate": "2019-09-11T16:00:00.000+0000",
+    "transactions": []
+}
 
 ## Swagger Documentation
 
