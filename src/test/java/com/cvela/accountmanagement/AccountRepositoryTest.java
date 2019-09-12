@@ -42,4 +42,12 @@ public class AccountRepositoryTest {
 		Optional<Account> searchedAccount = accountRepository.findById(1);
 		assertThat(newAccount.getId() == searchedAccount.get().getId());
 	}
+	
+	@Test
+	public void testDelete() {
+		Optional<Account> account = accountRepository.findById(10001); 
+		accountRepository.deleteById(account.get().getId());
+		Optional<Account> searchAccount = accountRepository.findById(10001); 
+		assertThat(searchAccount == null);
+	}
 }
