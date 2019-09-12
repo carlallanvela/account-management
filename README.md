@@ -9,22 +9,21 @@ To run project, go to AccountManagementApplication.java and run as SpringBoot Ap
 
 APIs can be accessed via http://localhost:8080
 Example:
-1) GET localhost:8080/jpa/accounts/
-2) POST localhost:8080/jpa/accounts/
-BODY:
+1) GET `localhost:8080/jpa/accounts/`
+2) POST `localhost:8080/jpa/accounts/`
+`BODY:
 {
     "name": "test",
     "transactionDate": "2019-09-11T16:00:00.000+0000",
     "transactions": []
-}
-3) GET localhost:8080/jpa/accounts/10001/transactions
-4) POST localhost:8080/jpa/accounts/10001/transactions
-BODY:
+}`
+3) GET `localhost:8080/jpa/accounts/10001/transactions`
+4) POST `localhost:8080/jpa/accounts/10001/transactions`
+`BODY:
 {
     "description": "Account 6",
-    "postDate": "2019-09-11T16:00:00.000+0000",
-    "transactions": []
-}
+    "postDate": "2019-09-11T16:00:00.000+0000"
+}`
 
 ## Swagger Documentation
 
