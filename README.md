@@ -1,6 +1,6 @@
 # account-management
 
-This is a sample application requested from ANZ Wholesale Engineering. The APIs enables user to GET, POST and DELETE Accounts and GET, POST Transactions.
+This is a sample application requested from ANZ Wholesale Engineering. This project is created using Java 8 and SpringBoot. The APIs enables user to GET, POST and DELETE Accounts and GET, POST Transactions.
 
 ## Development server
 
