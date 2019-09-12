@@ -15,3 +15,7 @@ GET localhost:8080/jpa/accounts/10001/transactions
 ## Swagger Documentation
 
 To view Swagger Documentation to see all APIs, go to http://localhost:8080/swagger-ui.html#/.
+
+## Unit Test
+
+To run Unit Test, go to AccountRepositoryTest.java and run as JUnit Test. This tests basic functionality like findOne, findAll and save.
