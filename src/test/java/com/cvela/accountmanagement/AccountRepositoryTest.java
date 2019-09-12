@@ -23,9 +23,6 @@ public class AccountRepositoryTest {
 	@Autowired
 	private AccountRepository accountRepository;
 	
-	@Autowired
-	private TransactionRepository transactionRepository;
-	
 	@Test
 	public void testFindAll() {
 		List<Account> allAccounts = accountRepository.findAll();
@@ -44,15 +41,5 @@ public class AccountRepositoryTest {
 		Account newAccount = accountRepository.save(new Account(1, "New Account", new Date()));
 		Optional<Account> searchedAccount = accountRepository.findById(1);
 		assertThat(newAccount.getId() == searchedAccount.get().getId());
-	}
-	
-	@Test
-	public void testDelete() {
-		// Delete all transactions first
-		transactionRepository.deleteAll();
-		accountRepository.deleteAll();
-		List<Account> allAccounts = accountRepository.findAll();
-		assertThat(allAccounts.size() == 0);
-		
 	}
 }

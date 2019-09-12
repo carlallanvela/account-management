@@ -24,6 +24,7 @@ import com.cvela.accountmanagement.account.Account;
 import com.cvela.accountmanagement.account.Transaction;
 import com.cvela.accountmanagement.exception.AccountNotFoundException;
 
+
 @RestController
 public class AccountJpaResource {
 	
@@ -77,6 +78,9 @@ public class AccountJpaResource {
 	
 	@DeleteMapping("/jpa/accounts/{id}")
 	public void deleteAccount(@PathVariable int id) {
+		Account account = accountRepository.getOne(id);
+		// Remove Transactions First
+		transactionRepository.deleteAll(account.getTransactions());
 		accountRepository.deleteById(id);
 	}
 	
