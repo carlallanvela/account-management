@@ -5,7 +5,7 @@ The APIs enables user to GET, POST and DELETE Accounts and GET, POST Transaction
 
 # account-management-ui
 
-The frontend for this application is created for these APIs can be found on the link below. 
+The frontend for this application is created for these APIs can be found on the link below. The frontend application is created using Angular 8.
 
 Please see READ ME on how to use and deploy:
 https://github.com/carlallanvela/account-management-ui
