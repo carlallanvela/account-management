@@ -5,7 +5,9 @@ The APIs enables user to GET, POST and DELETE Accounts and GET, POST Transaction
 
 # account-management-ui
 
-The frontend for this application is created for these APIs can be found on the link below. Please see READ ME on how to use:
+The frontend for this application is created for these APIs can be found on the link below. 
+
+Please see READ ME on how to use and deploy:
 https://github.com/carlallanvela/account-management-ui
 
 ## Development server
