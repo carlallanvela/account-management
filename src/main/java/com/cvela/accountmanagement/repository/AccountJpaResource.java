@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +25,7 @@ import com.cvela.accountmanagement.account.Transaction;
 import com.cvela.accountmanagement.exception.AccountNotFoundException;
 
 
-//@CrossOrigin("http://localhost:4200"): FOR ANGULAR UI
+@CrossOrigin("http://localhost:4200")
 @RestController
 public class AccountJpaResource {
 	
@@ -39,12 +40,12 @@ public class AccountJpaResource {
 		return accountRepository.findAll();
 	}
 	
-	@GetMapping(path="/jpa/accounts/{id}")
-	public Optional<Account> retrieveAccount(@PathVariable int id) {
-		Optional<Account> account = accountRepository.findById(id);
+	@GetMapping(path="/jpa/accounts/{accountNumber}")
+	public Optional<Account> retrieveAccount(@PathVariable int accountNumber) {
+		Optional<Account> account = accountRepository.findById(accountNumber);
 		
 		if (!account.isPresent()) {
-			throw new AccountNotFoundException("id: " + id);
+			throw new AccountNotFoundException("accountNumber: " + accountNumber);
 		}
 
 		// HATEOAS
@@ -56,7 +57,7 @@ public class AccountJpaResource {
 		ControllerLinkBuilder linkTo = 
 				linkTo(methodOn(this.getClass()).retrieveAllAccounts());
 		
-		resource.add(linkTo.withRel("all-users"));
+		resource.add(linkTo.withRel("all-accounts"));
 		
 		return account;
 	}
@@ -76,31 +77,32 @@ public class AccountJpaResource {
 		return ResponseEntity.created(location).build();
 	}
 	
-	@DeleteMapping("/jpa/accounts/{id}")
-	public void deleteAccount(@PathVariable int id) {
-		Account account = accountRepository.getOne(id);
+	@DeleteMapping("/jpa/accounts/{accountNumber}")
+	public void deleteAccount(@PathVariable int accountNumber) {
+		Account account = accountRepository.getOne(accountNumber);
 		// Remove Transactions First
 		transactionRepository.deleteAll(account.getTransactions());
-		accountRepository.deleteById(id);
+		accountRepository.deleteById(accountNumber);
 	}
 	
-	@GetMapping(path="/jpa/accounts/{id}/transactions")
-	public List<Transaction> retrieveAllTransactions(@PathVariable int id) {
-		Optional<Account> accountOptional = accountRepository.findById(id);
+	@GetMapping(path="/jpa/accounts/{accountNumber}/transactions")
+	public List<Transaction> retrieveAllTransactions(@PathVariable int accountNumber) {
+		Optional<Account> accountOptional = accountRepository.findById(accountNumber);
 		if (!accountOptional.isPresent()) {
-			throw new AccountNotFoundException("id-" + id);
+			throw new AccountNotFoundException("accountNumber:" + accountNumber);
 			
 		}
 		return accountOptional.get().getTransactions();
 	}
 	
-	@PostMapping("/jpa/accounts/{id}/transactions")
-	public ResponseEntity<Object> createTransaction(@PathVariable int id, @RequestBody Transaction transaction) {
+	@PostMapping("/jpa/accounts/{accountNumber}/transactions")
+	public ResponseEntity<Object> createTransaction(@PathVariable int accountNumber,
+			@RequestBody Transaction transaction) {
 		
-		Optional<Account> accountOptional = accountRepository.findById(id);
+		Optional<Account> accountOptional = accountRepository.findById(accountNumber);
 		
 		if (!accountOptional.isPresent()) {
-			throw new AccountNotFoundException("id-" + id);
+			throw new AccountNotFoundException("accountNumber:" + accountNumber);
 		}
 
 		Account account = accountOptional.get();
@@ -109,7 +111,7 @@ public class AccountJpaResource {
 		
 		URI location = ServletUriComponentsBuilder
 			.fromCurrentRequest()
-			.path("/{id}")
+			.path("/{accountNumber}")
 			.buildAndExpand(transaction.getId())
 			.toUri();
 		
