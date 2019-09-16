@@ -2,6 +2,7 @@ package com.cvela.accountmanagement;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -13,8 +14,12 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.cvela.accountmanagement.account.Account;
+import com.cvela.accountmanagement.account.Transaction;
 import com.cvela.accountmanagement.repository.AccountRepository;
 import com.cvela.accountmanagement.repository.TransactionRepository;
+
+import constant.AccountType;
+import constant.Currency;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -33,21 +38,25 @@ public class AccountRepositoryTest {
 	@Test
 	public void testFindOne() {
 		Optional<Account> account = accountRepository.findById(10001);
-		assertThat(account.get().getName() == "Account 1");
+		assertThat(account.get().getAccountName() == "Account 1");
 	}
-	
+
 	@Test
 	public void testSave() {
-		Account newAccount = accountRepository.save(new Account(1, "New Account", new Date()));
+		double amt = 10.0;
+		List<Transaction> transactions = null;
+		Account newAccount = accountRepository.save(new Account(1, "Account 1", 
+				AccountType.CURRENT.toString(), new Date(), Currency.AUD.toString(), amt, transactions)) ;
 		Optional<Account> searchedAccount = accountRepository.findById(1);
-		assertThat(newAccount.getId() == searchedAccount.get().getId());
+		assertThat(newAccount.getAccountNumber() == searchedAccount.get().getAccountNumber());
 	}
 	
 	@Test
 	public void testDelete() {
 		Optional<Account> account = accountRepository.findById(10001); 
-		accountRepository.deleteById(account.get().getId());
+		accountRepository.deleteById(account.get().getAccountNumber());
 		Optional<Account> searchAccount = accountRepository.findById(10001); 
 		assertThat(searchAccount == null);
 	}
 }
+

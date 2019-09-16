@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +24,7 @@ import com.cvela.accountmanagement.account.Transaction;
 import com.cvela.accountmanagement.exception.AccountNotFoundException;
 
 
+//@CrossOrigin("http://localhost:4200"): FOR ANGULAR UI
 @RestController
 public class AccountJpaResource {
 	
@@ -70,7 +70,7 @@ public class AccountJpaResource {
 		URI location = ServletUriComponentsBuilder
 			.fromCurrentRequest()
 			.path("/{id}")
-			.buildAndExpand(savedAccount.getId())
+			.buildAndExpand(savedAccount.getAccountNumber())
 			.toUri();
 		
 		return ResponseEntity.created(location).build();
