@@ -12,7 +12,7 @@ https://github.com/carlallanvela/account-management-ui
 
 ## Development server
 
-To run project, go to AccountManagementApplication.java and run as SpringBoot Applciation. Upon server start  up, new Accounts and Transactions are inserted using data.sql located in src/main/resources.
+To run project, go to AccountManagementApplication.java and run as SpringBoot Applciation. Upon server start  up, new Accounts and Transactions are inserted using data.sql (H2 in memory database) located in src/main/resources.
 
 APIs can be accessed via http://localhost:8080
 Example:
