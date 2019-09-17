@@ -26,7 +26,7 @@ http://account-management-ui.s3-website.us-east-2.amazonaws.com/
 
 # Live Endpoints in AWS
 
-Deployed a working version to AWS Elastic Beanstalk. 
+Deployed a working version to <b>AWS Elastic Beanstalk</b>. 
 
 APIs can be accessed via: 
 
