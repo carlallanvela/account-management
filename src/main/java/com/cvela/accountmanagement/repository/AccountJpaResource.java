@@ -25,7 +25,7 @@ import com.cvela.accountmanagement.account.Transaction;
 import com.cvela.accountmanagement.exception.AccountNotFoundException;
 
 
-@CrossOrigin("http://localhost:4200")
+//@CrossOrigin("http://account-management-ui.s3-website.us-east-2.amazonaws.com/")
 @RestController
 public class AccountJpaResource {
 	
@@ -70,7 +70,7 @@ public class AccountJpaResource {
 		// Set a URI of the created Resource to the Response
 		URI location = ServletUriComponentsBuilder
 			.fromCurrentRequest()
-			.path("/{id}")
+			.path("/{accountNumber}")
 			.buildAndExpand(savedAccount.getAccountNumber())
 			.toUri();
 		
