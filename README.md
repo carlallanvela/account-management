@@ -19,7 +19,6 @@ Sample requests:
 `http://account-management-dev.us-west-2.elasticbeanstalk.com/jpa/accounts`
 `http://account-management-dev.us-west-2.elasticbeanstalk.com/jpa/accounts/10002/transactions`
 
-
 ## Development server
 
 To run project, go to AccountManagementApplication.java and run as SpringBoot Applciation. Upon server start  up, new Accounts and Transactions are inserted using data.sql (H2 in memory database) located in src/main/resources.
@@ -49,3 +48,6 @@ To view Swagger Documentation to see all APIs, go to http://localhost:8080/swagg
 ## Unit Test
 
 To run Unit Test, go to AccountRepositoryTest.java and run as JUnit Test. This tests basic functionality like findOne, findAll and save.
+
+## TODO
+Deploy UI in S3 so it can access endpoints.
