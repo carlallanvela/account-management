@@ -10,6 +10,16 @@ The frontend for this application is created for these APIs can be found on the 
 Please see READ ME on how to use and deploy:
 https://github.com/carlallanvela/account-management-ui
 
+# Live Endpoints in AWS
+
+Deployed a working version to AWS Elastic Beanstalk. APIs can be accessed via: 
+http://account-management-dev.us-west-2.elasticbeanstalk.com
+
+Sample requests:
+`http://account-management-dev.us-west-2.elasticbeanstalk.com/jpa/accounts`
+`http://account-management-dev.us-west-2.elasticbeanstalk.com/jpa/accounts/10002/transactions`
+
+
 ## Development server
 
 To run project, go to AccountManagementApplication.java and run as SpringBoot Applciation. Upon server start  up, new Accounts and Transactions are inserted using data.sql (H2 in memory database) located in src/main/resources.
