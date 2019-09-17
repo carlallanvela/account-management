@@ -34,9 +34,11 @@ http://account-management-dev.us-west-2.elasticbeanstalk.com
 
 Sample requests:
 View Accounts:
+
 `http://account-management-dev.us-west-2.elasticbeanstalk.com/jpa/accounts`
 
 View Transactions:
+
 `http://account-management-dev.us-west-2.elasticbeanstalk.com/jpa/accounts/10002/transactions`
 
 ## Development server
