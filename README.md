@@ -1,11 +1,16 @@
 # account-management
 
-This is a sample application requested from ANZ Wholesale Engineering. This project is created using Java 8 and SpringBoot. 
-The APIs enables user to GET, POST and DELETE Accounts and GET, POST Transactions.
+This is a sample application requested from ANZ Wholesale Engineering. 
+
+This project is created using Java 8 and SpringBoot. Persistence is implemented using H2 in memory database.
+
+The APIs enables user to GET, POST and DELETE Accounts and GET, POST Transactions under Accounts.
 
 # account-management-ui
 
-The frontend for this application is created for these APIs can be found on the link below. The frontend application is created using Angular 8.
+The frontend for this application is created for these APIs can be found on the link below. 
+
+The frontend application is created using Angular 8.
 
 Please see READ ME on how to use and deploy:
 https://github.com/carlallanvela/account-management-ui
@@ -17,7 +22,9 @@ http://account-management-ui.s3-website.us-east-2.amazonaws.com/
 
 # Live Endpoints in AWS
 
-Deployed a working version to AWS Elastic Beanstalk. APIs can be accessed via: 
+Deployed a working version to AWS Elastic Beanstalk. 
+
+APIs can be accessed via: 
 http://account-management-dev.us-west-2.elasticbeanstalk.com
 
 Sample requests:
