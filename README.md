@@ -21,6 +21,7 @@ https://github.com/carlallanvela/account-management-ui
 Deployed a working frontend to <b>AWS S3</b>. It connects to <b>AWS Elastic Beanstalk</b> to access APIs. 
 
 UI can be accessed via: 
+
 http://account-management-ui.s3-website.us-east-2.amazonaws.com/
 
 # Live Endpoints in AWS
@@ -28,6 +29,7 @@ http://account-management-ui.s3-website.us-east-2.amazonaws.com/
 Deployed a working version to AWS Elastic Beanstalk. 
 
 APIs can be accessed via: 
+
 http://account-management-dev.us-west-2.elasticbeanstalk.com
 
 Sample requests:
