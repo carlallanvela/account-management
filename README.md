@@ -10,6 +10,11 @@ The frontend for this application is created for these APIs can be found on the 
 Please see READ ME on how to use and deploy:
 https://github.com/carlallanvela/account-management-ui
 
+# Live UI in AWS
+
+Deployed a working frontend to AWS S3. It connects to AWS Elastic Beanstalk to access APIS. UI can be accessed via: 
+http://account-management-ui.s3-website.us-east-2.amazonaws.com/
+
 # Live Endpoints in AWS
 
 Deployed a working version to AWS Elastic Beanstalk. APIs can be accessed via: 
@@ -52,5 +57,3 @@ To view Swagger Documentation to see all APIs, go to http://localhost:8080/swagg
 
 To run Unit Test, go to AccountRepositoryTest.java and run as JUnit Test. This tests basic functionality like findOne, findAll and save.
 
-## TODO
-Deploy UI in S3 so it can access endpoints.
