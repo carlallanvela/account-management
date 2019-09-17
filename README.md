@@ -33,11 +33,11 @@ APIs can be accessed via:
 http://account-management-dev.us-west-2.elasticbeanstalk.com
 
 Sample requests:
-View Accounts:
+<b>View Accounts:</b>
 
 `http://account-management-dev.us-west-2.elasticbeanstalk.com/jpa/accounts`
 
-View Transactions:
+<b>View Transactions:</b>
 
 `http://account-management-dev.us-west-2.elasticbeanstalk.com/jpa/accounts/10002/transactions`
 
@@ -47,9 +47,9 @@ To run project, go to AccountManagementApplication.java and run as SpringBoot Ap
 
 APIs can be accessed via http://localhost:8080
 Example:
-1) GET 
+1) <b>GET</b>
 `localhost:8080/jpa/accounts/`
-2) POST 
+2) <b>POST</b>
 `localhost:8080/jpa/accounts/`
 
 `BODY:
@@ -59,10 +59,10 @@ Example:
     "transactions": []
 }`
 
-3) GET 
+3) <b>GET</b>
 `localhost:8080/jpa/accounts/10001/transactions`
 
-4) POST 
+4) <b>POST</b> 
 `localhost:8080/jpa/accounts/10001/transactions`
 
 `BODY:
