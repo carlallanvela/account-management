@@ -32,7 +32,7 @@ APIs can be accessed via:
 
 http://account-management-dev.us-west-2.elasticbeanstalk.com
 
-Sample requests:
+<b>Sample requests:</b>
 <b>View Accounts:</b>
 
 `http://account-management-dev.us-west-2.elasticbeanstalk.com/jpa/accounts`
