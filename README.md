@@ -56,7 +56,7 @@ Example:
 {
     "name": "test",
     "transactionDate": "2019-09-11T16:00:00.000+0000",
-    "transactions": []
+    "transactions": [] ...
 }`
 
 3) <b>GET</b>
@@ -68,7 +68,7 @@ Example:
 `BODY:
 {
     "description": "Account 6",
-    "postDate": "2019-09-11T16:00:00.000+0000"
+    "postDate": "2019-09-11T16:00:00.000+0000" ...
 }`
 
 ## Swagger Documentation
