@@ -73,7 +73,10 @@ Example:
 
 ## Swagger Documentation
 
-To view Swagger Documentation to see all APIs, go to http://localhost:5000/swagger-ui.html#/ or http://account-management-dev.us-east-2.elasticbeanstalk.com/swagger-ui.html.
+To view Swagger Documentation to see all APIs, go to 
+http://localhost:5000/swagger-ui.html#/ 
+or 
+http://account-management-dev.us-east-2.elasticbeanstalk.com/swagger-ui.html.
 
 ## Unit Test
 
