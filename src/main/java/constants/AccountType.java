@@ -1,4 +1,4 @@
-package constant;
+package constants;
 
 public enum AccountType {
 	SAVINGS, CURRENT

@@ -18,8 +18,8 @@ import com.cvela.accountmanagement.account.Transaction;
 import com.cvela.accountmanagement.repository.AccountRepository;
 import com.cvela.accountmanagement.repository.TransactionRepository;
 
-import constant.AccountType;
-import constant.Currency;
+import constants.AccountType;
+import constants.Currency;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

@@ -1,6 +1,7 @@
 package com.cvela.accountmanagement.repository;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
+
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
@@ -23,9 +24,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.cvela.accountmanagement.account.Account;
 import com.cvela.accountmanagement.account.Transaction;
 import com.cvela.accountmanagement.exception.AccountNotFoundException;
+import com.cvela.accountmanagement.exception.TransactionNotFoundException;
 
 
-//@CrossOrigin("http://account-management-ui.s3-website.us-east-2.amazonaws.com/")
+@CrossOrigin(origins = "http://account-management-ui.s3-website.us-east-2.amazonaws.com")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class AccountJpaResource {
 	
@@ -35,6 +38,7 @@ public class AccountJpaResource {
 	@Autowired
 	private TransactionRepository transactionRepository;
 
+	
 	@GetMapping(path="/jpa/accounts")
 	public List<Account> retrieveAllAccounts() {
 		return accountRepository.findAll();
@@ -62,7 +66,7 @@ public class AccountJpaResource {
 		return account;
 	}
 
-	@PostMapping("/jpa/accounts")
+	@PostMapping(path="/jpa/accounts")
 	public ResponseEntity<Object> createAccount(@Valid @RequestBody Account account) {
 		Account savedAccount = accountRepository.save(account);
 
@@ -90,12 +94,31 @@ public class AccountJpaResource {
 		Optional<Account> accountOptional = accountRepository.findById(accountNumber);
 		if (!accountOptional.isPresent()) {
 			throw new AccountNotFoundException("accountNumber:" + accountNumber);
-			
 		}
 		return accountOptional.get().getTransactions();
 	}
 	
-	@PostMapping("/jpa/accounts/{accountNumber}/transactions")
+	@GetMapping(path="/jpa/accounts/{accountNumber}/transactions/{transactionId}")
+	public Optional<Transaction> retrieveTransaction(@PathVariable int accountNumber,
+			@PathVariable int transactionId) {
+		Optional<Transaction> transaction = transactionRepository.findById(transactionId);
+		
+		if (!transaction.isPresent()) {
+			throw new TransactionNotFoundException("transactionId: " + transactionId);
+		}
+
+		Resource<Transaction> resource = new Resource<Transaction>(transaction.get());
+		
+		// Enable creates links from methods
+		ControllerLinkBuilder linkTo = 
+				linkTo(methodOn(this.getClass()).retrieveAllAccounts());
+		
+		resource.add(linkTo.withRel("all-transactions"));
+		
+		return transaction;
+	}
+	
+	@PostMapping(path="/jpa/accounts/{accountNumber}/transactions")
 	public ResponseEntity<Object> createTransaction(@PathVariable int accountNumber,
 			@RequestBody Transaction transaction) {
 		
@@ -116,5 +139,10 @@ public class AccountJpaResource {
 			.toUri();
 		
 		return ResponseEntity.created(location).build();
+	}
+	
+	@DeleteMapping("/jpa/accounts/{accountNumber}/transactions/{transactionId}")
+	public void deleteTransaction(@PathVariable int transactionId) {
+		transactionRepository.deleteById(transactionId);
 	}
 }
