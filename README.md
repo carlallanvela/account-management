@@ -48,9 +48,9 @@ To run project, go to AccountManagementApplication.java and run as SpringBoot Ap
 APIs can be accessed via http://localhost:8080
 Example:
 1) <b>GET</b>
-`localhost:8080/jpa/accounts/`
+`localhost:5000/jpa/accounts/`
 2) <b>POST</b>
-`localhost:8080/jpa/accounts/`
+`localhost:5000/jpa/accounts/`
 
 `BODY:
 {
@@ -60,10 +60,10 @@ Example:
 }`
 
 3) <b>GET</b>
-`localhost:8080/jpa/accounts/10001/transactions`
+`localhost:5000/jpa/accounts/10001/transactions`
 
 4) <b>POST</b> 
-`localhost:8080/jpa/accounts/10001/transactions`
+`localhost:5000/jpa/accounts/10001/transactions`
 
 `BODY:
 {
@@ -73,7 +73,7 @@ Example:
 
 ## Swagger Documentation
 
-To view Swagger Documentation to see all APIs, go to http://localhost:8080/swagger-ui.html#/.
+To view Swagger Documentation to see all APIs, go to http://localhost:5000/swagger-ui.html#/ or http://account-management-dev.us-east-2.elasticbeanstalk.com/swagger-ui.html.
 
 ## Unit Test
 
