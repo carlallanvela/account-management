@@ -4,7 +4,7 @@ This is a sample application requested from ANZ Wholesale Engineering as part of
 
 This project is created using <b>Java 8</b> and <b>SpringBoot</b>. Persistence is implemented using <b>H2</b> in memory database.
 
-The APIs enables user to <b>GET</b>, <b>POST</b> and <b>DELETE</b> Accounts and <b>GET</b>, <b>POST</b> Transactions under Accounts.
+The APIs enables user to <b>GET</b>, <b>POST</b> and <b>DELETE</b> Accounts and <b>GET</b>, <b>POST</b> and <b>DELETE</b> Transactions under Accounts.
 
 # account-management-ui
 
